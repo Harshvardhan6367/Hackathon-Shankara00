@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meditation Webpage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .hero {
+      background: url('abc.jpeg') no-repeat center center/cover;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #0e0c0c;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .pose-library {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(166, 113, 133, 255);
+      display: none;
+    }
+
+    .pose-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, auto);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .pose {
+      background-color: rgba(223, 157, 141, 255);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    .pose img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .benefits {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .cta button {
+      background-color: #3e8e41;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .cta button:hover {
+      background-color: #2f6d3f;
+    }
+
+    header {
+      background: rgba(145, 20, 203, 0.268);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-menu ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PeaceHub</div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="meditation.html">Meditation</a></li>
+        <li><a href="https://agent.jotform.com/019561cf62ae7d609cb0d3faf8d38aeff7e2">Chat Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Find Inner Peace with Our Meditation Guide</h1>
+    <p>Explore poses, techniques, and tips to enhance your meditation practice</p>
+    <button onclick="startMeditation()">Start Meditating Now</button>
+  </section>
+
+  <section class="pose-library" id="pose-library">
+    <h2>Pose Library</h2>
+    <div class="pose-grid" id="pose-grid"></div>
+  </section>
+
+  <script>
+    const poses = [
+      { 
+        name: "UNDERSTANDING SPRITUAL MEDITATION", 
+        image: "mad01.jpg", 
+        benefits: [
+          "Promotes relaxation and reduces anxiety.",
+          "Improves focus and posture.",
+          "Enhances breathing and lung capacity.",
+          "Strengthens the spine and joints.",
+          "Increases self-awareness and mindfulness."
+        ] 
+      },
+      { 
+        name: "LOVING KINDNESS MEDITATION", 
+        image: "mad02.jpg", 
+        benefits: [
+          "Helps open up the hips.",
+          "Improves spinal alignment.",
+          "Enhances flexibility.",
+          "Encourages deep breathing.",
+          "Promotes emotional balance."
+        ] 
+      },
+      { 
+        name: "Metta Meditation", 
+        image: "mad03.jpg", 
+        benefits: [
+          "Supports back and hip flexibility.",
+          "Encourages calmness.",
+          "Enhances focus.",
+          "Improves blood circulation.",
+          "Reduces stress and anxiety."
+        ] 
+      },
+      { 
+        name: "TRANSCENDENTL MEDITAIION", 
+        image: "mad04.jpg", 
+        benefits: [
+          "Stretches the thighs and knees.",
+          "Strengthens the lower back.",
+          "Promotes good posture.",
+          "Aids digestion.",
+          "Enhances concentration."
+        ] 
+      },
+      { 
+        name: "LOTUS POSE", 
+        image: "LOTUS.jpg", 
+        benefits: [
+          "Improves spinal flexibility.",
+          "Relieves stress and fatigue.",
+          "Stretches the hamstrings.",
+          "Calms the nervous system.",
+          "Encourages self-awareness."
+        ] 
+      },
+      { 
+        name: "Corpse Pose", 
+        image: "mad06.jpg", 
+        benefits: [
+          "Promotes deep relaxation.",
+          "Reduces blood pressure.",
+          "Encourages mindful breathing.",
+          "Relieves stress.",
+          "Boosts mental clarity."
+        ] 
+      },
+      { 
+        name: "MOVEMENT POSE", 
+        image: "mad07.jpg", 
+        benefits: [
+          "Relieves tension in the back and neck.",
+          "Calms the mind.",
+          "Encourages relaxation.",
+          "Improves flexibility in the hips.",
+          "Aids digestion."
+        ] 
+      },
+      { 
+        name: "CHILD's POSE", 
+        image: "mad08.jpg", 
+        benefits: [
+          "Improves balance and stability – Strengthens legs, ankles, and core.",
+          "Improves posture – Promotes spinal alignment and body awareness.",
+          "Strengthens the legs and glutes – Activates thighs, calves, and hips.",
+          "Opens the hips – Stretches inner thighs and groin area.",
+          "Increases flexibility – Enhances mobility in the legs and spine.",
+          "Improves concentration and focus – Enhances mental clarity.",
+          "Reduces stress and anxiety – Encourages relaxation and mindfulness.",
+          "Fosters patience and perseverance – Develops mental resilience.",
+          "Increases body awareness – Enhances coordination and stability.",
+          "Fosters a sense of grounding – Aligns the body and mind with the present moment."
+        ] 
+      },
+      { 
+        name: "CAT-COW POSE", 
+        image: "mad09.jpg", 
+        benefits: [
+          "Opens the chest and shoulders.",
+          "Strengthens the back and glutes.",
+          "Enhances lung function.",
+          "Stimulates digestion.",
+          "Improves blood circulation."
+        ] 
+      },
+      { 
+        name: "DOWNWARD DOG POSE", 
+        image: "mad10.jpg", 
+        benefits: [
+          "Strengthens the spine.",
+          "Opens the chest and lungs.",
+          "Improves flexibility.",
+          "Relieves lower back pain.",
+          "Boosts energy levels."
+        ] 
+      },
+      { 
+        name: "STANDING FORWARD BEND POSE", 
+        image: "mad11.jpg", 
+        benefits: [
+          "Strengthens arms and legs.",
+          "Stretches the shoulders and calves.",
+          "Improves digestion.",
+          "Reduces stress and fatigue.",
+          "Increases energy and circulation."
+        ] 
+      },
+      { 
+        name: "Warrior I Pose", 
+        image: "mad12.jpg", 
+        benefits: [
+          "Improves focus and balance.",
+          "Strengthens legs and core.",
+          "Opens the hips and chest.",
+          "Boosts stamina.",
+          "Encourages mental clarity."
+        ] 
+      },
+      { 
+        name: "Warrior II Pose", 
+        image: "mad13.jpg", 
+        benefits: [
+          "Enhances balance and concentration.",
+          "Strengthens legs and arms.",
+          "Expands lung capacity.",
+          "Increases endurance.",
+          "Promotes a sense of determination."
+        ] 
+      },
+      { 
+        name: "Triangle Pose", 
+        image: "mad14.jpg", 
+        benefits: [
+          "Stretches the sides of the body.",
+          "Improves overall balance.",
+          "Strengthens the legs.",
+          "Opens up the chest and shoulders.",
+          "Enhances digestion."
+        ] 
+      },
+      { 
+        name: "Plank Pose", 
+        image: "mad15.jpg", 
+        benefits: [
+          "Builds core strength.",
+          "Improves posture.",
+          "Enhances stability.",
+          "Strengthens the arms and legs.",
+          "Boosts overall endurance."
+        ] 
+      }
+    ];
+
+    function loadPoses() {
+      let poseGrid = document.getElementById("pose-grid");
+      poses.forEach(pose => {
+        let poseDiv = document.createElement("div");
+        poseDiv.classList.add("pose");
+        poseDiv.innerHTML = `
+          <img src="${pose.image}" alt="${pose.name}">
+          <h3>${pose.name}</h3>
+          <p>${pose.benefits[0]}</p>
+          <p>${pose.benefits[1]}</p>
+          <div class="benefits">
+            ${pose.benefits.slice(2).map(b => `<p>${b}</p>`).join('')}
+          </div>
+          <a href="#" onclick="toggleBenefits(event, this)">Read More</a>
+        `;
+        poseGrid.appendChild(poseDiv);
+      });
+    }
+
+    function startMeditation() {
+      document.getElementById("pose-library").style.display = "block";
+      document.getElementById("pose-library").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function toggleBenefits(event, link) {
+      event.preventDefault();
+      // Use querySelector within the same parent to reliably get the .benefits element
+      let benefits = link.parentElement.querySelector(".benefits");
+      if (benefits.style.display === "none" || benefits.style.display === "") {
+        benefits.style.display = "block";
+        link.textContent = "Read Less";
+      } else {
+        benefits.style.display = "none";
+        link.textContent = "Read More";
+      }
+    }
+
+    loadPoses();
+  </script>
+</body>
+</html>
+
+

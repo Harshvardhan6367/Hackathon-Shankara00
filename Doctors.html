@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors - Mental Health Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(124,167,176,255);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: #333;
+            padding: 15px;
+            text-align: right;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            display: flex;
+            justify-content: flex-end;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background: #555;
+        }
+        .container {
+            width: 100%;
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+        }
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input, select {
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #doctors-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .doctor {
+            background: #e3f2fd;
+            padding: 15px;
+            margin: 40px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            position: relative;
+            animation: float 2s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+        }
+        /* Apply zigzag pattern */
+        .doctor:nth-child(odd) {
+            align-self: flex-start;
+            transform: translateX(-20%);
+        }
+        .doctor:nth-child(even) {
+            align-self: flex-end;
+            transform: translateX(20%);
+        }
+        .doctor img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .doctor-details {
+            text-align: left;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="articles.html">Articles</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="meditation.html">Meditation</a>
+        <a href="https://agent.jotform.com/019561cf62ae7d609cb0d3faf8d38aeff7e2">Chat Support</a>
+    </div>
+    
+    <div class="container">
+        <h2>Find a Doctor</h2>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search by name or specialization...">
+            </select>
+        </div>
+        
+        <div id="doctors-list">
+            <div class="doctor">
+                <img src="abhona.jpeg" alt="Dr. Ahona Roy">
+                <div class="doctor-details">
+                    <h3>Dr. Ahona Roy</h3>
+                    <p>Specialization: Psychotherapist</p>
+                    <p>Contact: Psychotherapywithahona@gmail.com</p>
+                    <p>Mobile No: 9007223200</p>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="mukesh.jpeg" alt="Dr. Mukesh Chand Daderwal">
+                <div class="doctor-details">
+                    <h3>Dr. Mukesh Chand Daderwal</h3>
+                    <p>Specialization: Psychiatrist</p>
+                    <p>Contact: daderwalmukesh@gmail.com</p>
+                    <p>Mobile No: 9945985715</p>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="roy.jpeg" alt="Dr. Ahmed Asif">
+                <div class="doctor-details">
+                    <h3>Dr. Ahmed Asif</h3>
+                    <p>Specialization: Psychotherapist</p>
+                    <p>Contact: asif@inspirononline.com</p>
+                    <p>Mobile No: 9845676442</p>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="aayushi.jpeg" alt="Dr. Aayushi Garg">
+                <div class="doctor-details">
+                    <h3>Dr. Aayushi Garg</h3>
+                    <p>Specialization: Psychologist</p>
+                    <p>Contact: psy.aayushigarg@gmail.com</p>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="anis.jpeg" alt="Dr. Anis Syed">
+                <div class="doctor-details">
+                    <h3>Dr. Anis Syed</h3>
+                    <p>Specialization: Psychotherapist</p>
+                    <p>Contact: anis@gmail.com</p>
+                    <p>Mobile No: 9845676442</p>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="kartik.jpeg" alt="Dr. Kartik Rai">
+                <div class="doctor-details">
+                    <h3>Dr. Kartik Rai</h3>
+                    <p>Specialization: Psychotherapist</p>
+                    <p>Contact: raikartik444@gmail.com</p>
+                    <p>Mobile No: 8377952168</p>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="george.jpeg" alt="Dr. Nimesh Mohan George">
+                <div class="doctor-details">
+                    <h3>Dr. Nimesh Mohan George</h3>
+                    <p>Specialization: Psychotherapist</p>
+                    <p>Contact: nimeshmg0511@gmail.com</p>
+                    <p>Mobile No: 7994641086</p>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="shw.jpeg" alt="Dr. Shwetank Bansal">
+                <div class="doctor-details">
+                    <h3>Dr. Shwetank Bansal</h3>
+                    <p>Specialization: Psychiatrist</p>
+                    <p>Contact: helpdesk@betterme.in</p>
+                    <p>Mobile No: 9868042773</p>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="khosla.jpeg" alt="Dr. Anshul Khosla">
+                <div class="doctor-details">
+                    <h3>Dr. Anshul Khosla</h3>
+                    <p>Specialization: Psychologist</p>
+                    <p>Contact: support@amahahealth.com</p>
+                    <p>Mobile No: 020 71171501</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
